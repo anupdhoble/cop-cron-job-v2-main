@@ -1,12 +1,12 @@
 const fetch = require('node-fetch');
 require('dotenv').config(); // Loads environment variables from .env file
 
-async function sendTemplateMessage(day, course_name, senderID) {
+async function sendTemplateMessage(day, course_name, number) {
     const options = {
         method: 'POST',
-        url: `https://${process.env.WATI_URL}/api/v1/sendTemplateMessage?whatsappNumber=${senderID}`,
+        url: `https://${process.env.WATI_URL}/api/v1/sendTemplateMessage?whatsappNumber=${number}`,
         headers: {
-            'Authorization': `Bearer ${process.env.API}`, // Assuming API key is passed as Bearer token
+            'Authorization': `Bearer ${process.env.WATI_API}`, // Assuming API key is passed as Bearer token
             'Content-Type': 'application/json-patch+json'
         },
         body: JSON.stringify({
